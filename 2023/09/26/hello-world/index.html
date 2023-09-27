@@ -127,71 +127,6 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
@@ -209,24 +144,35 @@
                         </span>
                     
                     
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                            
+                        </span>
+                    
                 </div>
             
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Hello-world-————wyx"><a href="#Hello-world-————wyx" class="headerlink" title="Hello world ————wyx"></a>Hello world ————wyx</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+            <p>这是我的个人网站建立完成后的第一篇文章，出于程序员的习惯，我将它命名为“Hello World”。这个网站建立的时间是2023年9月26日，正好是我的二十一岁生日。</p>
+<p>关于二十一岁，王小波在《黄金时代》里写过这么一段话：</p>
+<blockquote>
+<p>“那一天我二十一岁，在我一生的黄金时代。</p>
+<p>我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。</p>
+<p>后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消失，最后变得像挨了锤的牛一样。</p>
+<p>可是我过二十一岁生日时没有预见到这一点。</p>
+<p>我觉得自己会永远生猛下去，什么也锤不了我。”</p>
+</blockquote>
+<p>第一次看到这句话的时候我大概15岁，正是青春期多愁善感的年龄，每天都丧兮兮的，对未来充满了悲观的情绪，真的像挨了锤的牛一样。后来的这些年里，我还真遇到了很多糟糕的人和事，不过都熬过来了，总算是跌跌撞撞地活到了王小波笔下的“黄金时代”。</p>
+<p>站在21岁这个特殊时间节点上往回看是很有趣的事情。我是个记性不太好的人，如果是让我回忆曾经某些糟糕的人和事，大多只剩个轮廓了。</p>
+<p>但是有些人我还是记得很清楚，比如我的所有朋友，比如帮助过我的老师和长辈们；还有一些往事也依旧历历在目，比如高中活动课上的飞行棋，比如凌晨海边看到的流星雨。</p>
+<p>我自认不是一个擅长维持关系的人，不少曾经很好的朋友都渐渐失去了联系。但我还是想说，能遇见你们是我在这糟糕的世界中最最幸运的事情。</p>
+<p>走出青春期，我依然是个悲观的人，但没原来那么愁眉苦脸了。正如张悬在歌里唱的——“我拥有的都是侥幸，我失去的都是人生”，当我彻底地接受了“生活是苦难的”这个事实，我也就开始对自己所拥有的一切暂时的幸福心怀感激，而不再担心它会逝去。</p>
+<p>我相信离别是注定的事情，因此我无比感恩每一次相遇。</p>
+<p>我相信苦难是生活的本色，因此我无比珍视每一种快乐。</p>
+<p>往后的日子里，继续满怀期待地与世界交手吧！</p>
 
         </div>
 
@@ -259,6 +205,10 @@
                 <span>Tag(s):</span>
                 <span class="tag">
                     
+                    
+                        <a href="/tags/%E9%9A%8F%E7%AC%94/"># 随笔</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -269,7 +219,7 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/09/26/brithday/">brithday</a>
+                <a class="prev" rel="prev" href="/2023/09/27/%E8%8B%B1%E4%BB%99%E5%BA%A7%E6%B5%81%E6%98%9F%E9%9B%A8-2023-8/">英仙座流星雨</a>
             
             
         </section>
