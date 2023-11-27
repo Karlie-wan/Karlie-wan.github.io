@@ -13,7 +13,7 @@
 
 
 
-<title>面向对象和类【JAVA学习笔记2】 | Karlie&#39;s blog</title>
+<title>lec1 【introduction to algorithms】 | Karlie&#39;s blog</title>
 
 
 
@@ -196,7 +196,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">面向对象和类【JAVA学习笔记2】</h1>
+            <h1 class="post-title">lec1 【introduction to algorithms】</h1>
             
                 <div class="post-meta">
                     
@@ -205,14 +205,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">September 28, 2023&nbsp;&nbsp;10:22:54</a>
+                        Date: <a href="#">October 6, 2023&nbsp;&nbsp;14:06:26</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/JAVA%E7%AC%94%E8%AE%B0/">JAVA笔记</a>
+                                <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论</a>
                             
                         </span>
                     
@@ -221,41 +221,10 @@
         </header>
 
         <div class="post-content">
-            <h2 id="面向对象思想"><a href="#面向对象思想" class="headerlink" title="面向对象思想"></a>面向对象思想</h2><ul>
-<li>对象 &#x3D; 属性 + 方法</li>
-<li>对象的规范 &#x3D; 属性定义 + 方法定义</li>
-<li>OO：面向对象</li>
-<li>类可以继承；子类可以继承 父类所有内容（不能直接访问private成员）</li>
-</ul>
-<h2 id="Java类和对象"><a href="#Java类和对象" class="headerlink" title="Java类和对象"></a>Java类和对象</h2><p>类和对象</p>
-<ul>
-<li>最简单的类  class A{}</li>
-<li>对象 A obj &#x3D; new A()</li>
-<li>同一个类的两个对象在内存中放在不同的位置</li>
-<li>obj可以看作内存中一个对象（包括若干个数据）的句柄</li>
-<li>在C&#x2F;C++中，obj成为指针，在JAVA中成为Reference</li>
-<li>对象赋值时Reference赋值，而基本类型是直接值拷贝</li>
-</ul>
-<p>面向对象的基本特征：封装性、继承性、多态性</p>
-<h4 id="Example：ReferenceTest"><a href="#Example：ReferenceTest" class="headerlink" title="Example：ReferenceTest"></a>Example：ReferenceTest</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class ReferenceTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		int num1 = 5;</span><br><span class="line">		int num2 = num1;</span><br><span class="line">		System.out.println(&quot;num1: &quot; + num1 + &quot;, num2: &quot; + num2);</span><br><span class="line">		num2 = 10;</span><br><span class="line">		System.out.println(&quot;num1: &quot; + num1 + &quot;, num2: &quot; + num2);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		MyNumber obj1 = new MyNumber();</span><br><span class="line">		MyNumber obj2 = new MyNumber();</span><br><span class="line">		System.out.println(obj1.num);</span><br><span class="line">		System.out.println(obj2.num);</span><br><span class="line">		System.out.println(&quot;======接下来输出新值=====&quot;);</span><br><span class="line">		</span><br><span class="line">		obj2 = obj1;</span><br><span class="line">		obj2.num = 10;</span><br><span class="line">		</span><br><span class="line">		System.out.println(obj1.num);</span><br><span class="line">		System.out.println(obj2.num);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>输出结果，obj1&#x3D;10；obj2&#x3D;10</p>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>当对象产生时，就给成员赋值</p>
-<ul>
-<li>构造函数名称必须和类名一样</li>
-<li>且没有返回值</li>
-<li>JAVA有构造函数，但是没有析构函数（和C++不一样）</li>
-<li>每个变量都有生命周期，当变量消亡，系统自动回收内存</li>
-<li>一个类可以有多个构造函数，只要形参列表不同即可</li>
-</ul>
-<h2 id="信息隐藏和this指针"><a href="#信息隐藏和this指针" class="headerlink" title="信息隐藏和this指针"></a>信息隐藏和this指针</h2><h3 id="信息隐藏"><a href="#信息隐藏" class="headerlink" title="信息隐藏"></a>信息隐藏</h3><ul>
-<li>类里面的成员属性，是私有的</li>
-<li>类的方法是公有的</li>
-<li>外部对类成员的操作只能通过get和set</li>
-</ul>
-<h3 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h3><p>负责指向本类中的成员变量</p>
-<p>this可以代替本类中的本类的构造函数，例如：在构造函数里写this(m,0)</p>
-
+            <blockquote>
+<p>2023年 第一学期算法设计与分析课程的学习笔记</p>
+</blockquote>
+<h1 id="Lecture-1：Multiplication-Big-O"><a href="#Lecture-1：Multiplication-Big-O" class="headerlink" title="Lecture 1：Multiplication, &amp; Big-O"></a>Lecture 1：Multiplication, &amp; Big-O</h1><h2 id="Multiplications"><a href="#Multiplications" class="headerlink" title="Multiplications"></a>Multiplications</h2>
         </div>
 
         
@@ -269,7 +238,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://karlie-wan.github.io/2023/09/28/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/">https://karlie-wan.github.io/2023/09/28/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/</a></span>
+                        <span><a href="https://karlie-wan.github.io/2023/10/06/algorithms/">https://karlie-wan.github.io/2023/10/06/algorithms/</a></span>
                     </p>
                 
                 
@@ -288,9 +257,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/JAVA/"># JAVA</a>
-                    
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0/"># 学习</a>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/"># 算法</a>
                     
                         
                 </span>
@@ -303,10 +270,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/10/06/algorithms/">lec1 【introduction to algorithms】</a>
+                <a class="prev" rel="prev" href="/2023/10/07/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">继承、接口和抽象类【JAVA学习笔记3】</a>
             
             
-            <a class="next" rel="next" href="/2023/09/28/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-JAVA%E7%B1%BB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">JAVA类基础知识【JAVA学习笔记1】</a>
+            <a class="next" rel="next" href="/2023/09/28/JAVA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/">面向对象和类【JAVA学习笔记2】</a>
             
         </section>
 
