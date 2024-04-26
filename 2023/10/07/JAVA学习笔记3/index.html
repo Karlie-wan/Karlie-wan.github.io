@@ -240,6 +240,36 @@
 <h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><ul>
 <li>每个子类构造函数的第一句话，默认调用父类的无参构造函数super()，除非子类构造函数第一句话是super，不会出现连续两条super</li>
 </ul>
+<h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><ul>
+<li>如果一个类有方法但是没有实现，他就是抽象类</li>
+<li>类和没有实现的方法由abstract声明</li>
+<li>抽象类没办法new一个对象（不能被实例化）</li>
+<li>子类可以继承于抽象类，但一定要实现所有abstract方法（除非把子类也声明成abstract）</li>
+</ul>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><ul>
+<li>如果类的所有方法都没有实现，就算是接口interface</li>
+<li>类只可以实现extends一个类，但可以实现implements多个接口。类实现接口，必须实现所有未实现发方法</li>
+<li>接口里可以定义变量，但一般是常量</li>
+<li>没有构造函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package org.example;</span><br><span class="line"></span><br><span class="line">public interface Animal &#123;</span><br><span class="line">    public void eat();</span><br><span class="line">    public void move();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package org.example;</span><br><span class="line"></span><br><span class="line">public class Cat implements Animal&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void eat() &#123;</span><br><span class="line">        System.out.println(&quot;cat eat&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void move() &#123;</span><br><span class="line">        System.out.println(&quot;cat move&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="转型、多态和契约设计"><a href="#转型、多态和契约设计" class="headerlink" title="转型、多态和契约设计"></a>转型、多态和契约设计</h2><h3 id="类的转型"><a href="#类的转型" class="headerlink" title="类的转型"></a>类的转型</h3><ul>
+<li>变量类型转换 int a &#x3D; （int）b</li>
+<li>类之间的转型只限制于有继承关系的类<ul>
+<li>子类变成父类可以（向上转型）</li>
+<li>父类不可转成子类，除非父类本身就算从子类转化过来的</li>
+</ul>
+</li>
+</ul>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><ul>
+<li>Override 子类可以重新定义一个名称和参数与父类完全一致</li>
+<li>子类的优先级高于父类</li>
+</ul>
 
         </div>
 
